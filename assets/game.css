@@ -60,6 +60,12 @@ body {
     overflow: hidden;
 }
 
+#progressBarFull {
+    height: 100%;
+    background:rgb(28, 187, 110);
+    width: 0%;
+}
+
 @media screen and (max-width: 768px) {
     .choice-container {
         min-width: 40rem;
