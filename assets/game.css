@@ -1,11 +1,34 @@
 body {
-    color: #fff;
+  color: #fff;
 }
 
-/* .choice-container {
+.choice-container {
     display: flex;
-    margin-bottom: 0.8rem;
+    margin-bottom: 10px;
     width: 100%;
     border-radius: 4px;
     background: rgb(28, 187, 110);
-} */
+    font-size: 3rem;
+    min-width: 80rem;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 8px #888888;
+}
+
+.choice-prefix {
+    padding: 2rem 2.5rem;
+    color: #fff;
+}
+
+.choice-text {
+    padding: 2rem;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .choice-container {
+        min-width: 40rem;
+    }
+}
