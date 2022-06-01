@@ -7,7 +7,7 @@ body {
     margin-bottom: 10px;
     width: 100%;
     border-radius: 4px;
-    background: rgb(28, 187, 110);
+    background: rgb(30, 186, 217);
     font-size: 3rem;
     min-width: 80rem;
 }
@@ -25,6 +25,39 @@ body {
 .choice-text {
     padding: 2rem;
     width: 100%;
+}
+
+.correct {
+    background: rgb(28, 187, 110);
+}
+
+.incorrect {
+    background: rgb(200, 47, 47);
+}
+
+/* heads up display */
+
+#hud {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.hud-main-text {
+    text-align: center;
+}
+
+#progressBar {
+    width: 20rem;
+    height: 3rem;
+    border: 0.2rem solid rgb(28, 187, 110);
+    margin-top: 2rem;
+    border-radius: 50px;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
