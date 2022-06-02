@@ -3,18 +3,7 @@ const choices = Array.from(document.querySelectorAll(".choice-text"));
 const progressText = document.querySelector("#progressText");
 const scoreText = document.querySelector("#score");
 const progressBarFull = document.querySelector("#progressBarFull");
-// const timerNum = document.querySelector("#timer-num");
-
-var timeleft = 100;
-var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
-    clearInterval(downloadTimer);
-    document.getElementById("timer-num").innerHTML = "Finished";
-  } else {
-    document.getElementById("timer-num").innerHTML = timeleft;
-  }
-  timeleft -= 1;
-}, 1000);
+const timerText = document.querySelector("#timer-num");
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -61,6 +50,7 @@ let questions = [
 
 const SCORE_POINTS = 100;
 const MAX_QUESTIONS = 4;
+const TIMER_POINTS = 10;
 
 startGame = () => {
   questionCounter = 0;
@@ -110,6 +100,10 @@ choices.forEach((choice) => {
       incrementScore(SCORE_POINTS);
     }
 
+    else if (classToApply === "incorrect") {
+        decrementTimer(TIMER_POINTS);
+      }
+
     selectedChoice.parentElement.classList.add(classToApply);
 
     setTimeout(() => {
@@ -123,5 +117,25 @@ incrementScore = (num) => {
   score += num;
   scoreText.innerText = score;
 };
+
+
+var timeleft = 100;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("timer-num").innerHTML = "Finished";
+    alert("Time is Up!");
+    window.location = '../end.html';
+  } else {
+    document.getElementById("timer-num").innerHTML = timeleft;
+  }
+  timeleft -= 1;
+}, 1000);
+
+
+decrementTimer = (num) => {
+    timer -= num;
+    timerText.innerText = timer;
+  };
 
 startGame();
